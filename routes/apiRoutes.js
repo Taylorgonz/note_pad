@@ -23,11 +23,6 @@ module.exports = (app) => {
                db.splice(i,1);
            }
        }
-        
-
-        
-
-        console.log(id)
         // const deleted = db.find(db.id === id)
 
 
