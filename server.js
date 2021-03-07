@@ -13,7 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'view.html')));
 
 require('./routes/htmlRoutes')(app);
 require('./routes/apiRoutes')(app);
