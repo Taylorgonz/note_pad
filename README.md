@@ -1,4 +1,4 @@
-# note_pad#
+# note_pad
 
 # Description
 
