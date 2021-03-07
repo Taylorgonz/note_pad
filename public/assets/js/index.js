@@ -25,7 +25,6 @@ const hide = (elem) => {
 
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
-let idNum = 1;
 
 const getNotes = () =>
   fetch('/api/notes', {
@@ -72,13 +71,12 @@ const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
-    id: idNum,
   };
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
   });
-  idNum++;
+
 };
 
 // Delete the clicked note
