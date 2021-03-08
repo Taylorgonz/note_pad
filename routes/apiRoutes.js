@@ -1,21 +1,24 @@
 let db = require('../db/db.json');
 const { v4: uuidv4 } = require('uuid');
+const express = require('express');
+const router = express.Router();
+
 // routing
 
-module.exports = (app) => {
 
 
 
-    app.get('/api/notes', (req, res) => res.json(db))
+    router.get('/notes', (req, res) => res.json(db))
 
-    app.post('/api/notes', (req, res) => {
+    router.post('/notes', (req, res) => {
         const noteInput = req.body;
         noteInput.id = uuidv4();
         db.push(noteInput);
         res.json(true);
     });
 
-    app.delete('/api/notes/:id', (req, res) => {
+
+    router.delete('/notes/:id', (req, res) => {
         const id = req.params.id;
 
        for (let i = 0; i<db.length; i ++) {
@@ -25,11 +28,7 @@ module.exports = (app) => {
        }
 
        res.json(db);
-        // const deleted = db.find(db.id === id)
-
-
-
-
-        // code to clear out data
+       
     })
-}
+
+module.exports = router;
